@@ -6,23 +6,26 @@
     <script src="https://d3js.org/d3.v6.js"></script>
 
     <!-- Create a div where the graph will take place -->
-    <div id="my_dataviz"></div>
+    <table>
+        <tr>
+            <td>
+                <div id="jira"></div>
+            </td>
+        </tr>
+    </table>
+
+    <link rel="stylesheet" href="styles.css">
 
     <script>
-
-        // set the dimensions and margins of the graph
-        const margin = { top: 30, right: 30, bottom: 70, left: 60 },
-            width = 460 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
-
-        // append the svg object to the body of the page
-        const svg = d3.select("#my_dataviz")
+        var svg = d3.select("div#jira")
             .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+            .attr("width", 100)
+            .attr("height", 50)
+            .style("background", "red")
 
+        // .attr("preserveAspectRatio", "xMinYMin meet")
+        // .attr("viewBox", "0 0 300 300")
+        // .classed("svg-content", true)
         // Parse the Data
         d3.csv("https://raw.githubusercontent.com/yrom1/jira-python/main/plot.csv").then(function (data) {
 
